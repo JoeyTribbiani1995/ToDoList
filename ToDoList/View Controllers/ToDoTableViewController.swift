@@ -92,18 +92,18 @@ class ToDoTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-//    @IBAction func editBarButtonItemTapped(_ sender: UIBarButtonItem) {
-//        let tableViewEditingMode = tableView.isEditing
-//        tableView.setEditing(!tableViewEditingMode, animated: true)
-//       
-//        if flagChangeBarButtonTitle {
-//            editBarButtonItem.title =  "Done"
-//            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
-//        }else {
-//            editBarButtonItem.title =  "Edit"
-//            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
-//        }
-//        
-//    }
+    @IBAction func editBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+       
+        if flagChangeBarButtonTitle {
+            editBarButtonItem.title =  "Done"
+            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
+        }else {
+            editBarButtonItem.title =  "Edit"
+            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
+        }
+        
+    }
     
 }
