@@ -41,11 +41,70 @@
                             <outlet property="delegate" destination="1W7-2t-bfB" id="aMi-bX-HKY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="To Do List" largeTitleDisplayMode="always" id="WW9-ky-KPq"/>
+                    <navigationItem key="navigationItem" title="To Do List" largeTitleDisplayMode="always" id="WW9-ky-KPq">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Kxm-XY-p7r">
+                            <connections>
+                                <action selector="editBarButtonItemTapped:" destination="1W7-2t-bfB" id="dgt-1l-te3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2MF-Zj-bAV">
+                            <connections>
+                                <segue destination="Oe1-xt-XN4" kind="show" identifier="AddToDo" id="tCT-fy-dab"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editBarButtonItem" destination="Kxm-XY-p7r" id="7BW-88-vFB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E75-0E-g6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="502" y="-23"/>
+        </scene>
+        <!--New To Do -->
+        <scene sceneID="O2S-FD-SrC">
+            <objects>
+                <tableViewController id="9pa-Xo-hmt" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tki-aj-l9d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sgQ-J2-LAD">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sgQ-J2-LAD" id="KKG-jQ-ILA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9pa-Xo-hmt" id="cct-IX-QmG"/>
+                            <outlet property="delegate" destination="9pa-Xo-hmt" id="Js2-Gn-6MX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New To Do " largeTitleDisplayMode="never" id="OMo-da-5M6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spK-kj-R40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E7z-r4-BIN">
+            <objects>
+                <navigationController id="Oe1-xt-XN4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jk0-zO-qAd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pa-Xo-hmt" kind="relationship" relationship="rootViewController" id="qnK-1K-HnC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IId-Ha-R9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="-24"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mei-y4-gvz">
