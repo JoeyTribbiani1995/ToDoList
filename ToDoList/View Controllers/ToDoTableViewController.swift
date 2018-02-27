@@ -13,6 +13,7 @@ class ToDoTableViewController: UITableViewController {
     @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
     
     var toDos = [ToDo]()
+    var flagChangeBarButtonTitle = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,15 @@ class ToDoTableViewController: UITableViewController {
     @IBAction func editBarButtonItemTapped(_ sender: UIBarButtonItem) {
         let tableViewEditingMode = tableView.isEditing
         tableView.setEditing(!tableViewEditingMode, animated: true)
+       
+        if flagChangeBarButtonTitle {
+            editBarButtonItem.title =  "Done"
+            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
+        }else {
+            editBarButtonItem.title =  "Edit"
+            flagChangeBarButtonTitle = !flagChangeBarButtonTitle
+        }
+        
     }
     
 }
