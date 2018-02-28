@@ -24,6 +24,8 @@ class ToDoDetailTableViewController: UITableViewController {
             dueDatePicker.isHidden = !isDueDatePickerShown
         }
     }
+    
+    var toDo : ToDo?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +106,22 @@ class ToDoDetailTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else {
+            return
+        }
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let notes = notesTextView.text
+        let date = dueDatePicker.date
+        
+        toDo = ToDo(title: title, isComplete: isComplete, dueDate: date, notes: notes!)
+        
+        
+    }
     
     
     

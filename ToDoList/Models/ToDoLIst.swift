@@ -14,6 +14,13 @@ struct ToDo {
     var dueDate : Date
     var notes : String?
     
+    init(title : String , isComplete : Bool , dueDate : Date , notes : String) {
+        self.title = title
+        self.isComplete = isComplete
+        self.dueDate = dueDate
+        self.notes = notes
+    }
+    
     static func loadToDos() -> [ToDo]? {
         return nil
     }

@@ -80,8 +80,18 @@ class ToDoTableViewController: UITableViewController {
         }
         
     }
-    @IBAction func unwindToToDoTableViewController(_sender : UIStoryboardSegue){
+    @IBAction func unwindToToDoTableViewController(_ seque : UIStoryboardSegue){
+        guard seque.identifier == "saveUnwind" else {
+            return
+        }
         
+        let sourceVC = seque.source as! ToDoDetailTableViewController
+        if let toDo = sourceVC.toDo {
+            let indexPath = IndexPath(row: toDos.count, section: 0)
+            
+            toDos.append(toDo)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
     
 }
