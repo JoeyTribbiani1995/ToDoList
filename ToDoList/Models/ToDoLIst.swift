@@ -25,5 +25,13 @@ struct ToDo {
         
         return [toDo1,toDo2,toDo3]
     }
+    
+    static let dueDateFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        
+        return formatter
+    }()
 }
 

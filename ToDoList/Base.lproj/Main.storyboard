@@ -99,6 +99,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <connections>
+                                                                        <action selector="returnPressed:" destination="9pa-Xo-hmt" eventType="primaryActionTriggered" id="uBR-Dd-20Q"/>
                                                                         <action selector="textEditingChanged:" destination="9pa-Xo-hmt" eventType="editingChanged" id="pPd-Vl-u7M"/>
                                                                     </connections>
                                                                 </textField>
@@ -217,12 +218,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dueDateLabel" destination="gGF-cu-pbz" id="Y29-Fr-9UY"/>
                         <outlet property="dueDatePicker" destination="qeO-fd-7Y7" id="hVn-9K-Cic"/>
                         <outlet property="isCompleteButton" destination="ChW-im-S78" id="zFF-Ba-a3c"/>
                         <outlet property="notesTextView" destination="c3S-3S-4so" id="wS1-Hp-fPS"/>
                         <outlet property="saveBarButton" destination="S7p-ie-ZVp" id="bpm-9w-bdw"/>
                         <outlet property="titleTextField" destination="zKD-jU-fF7" id="dpK-d3-VMn"/>
-                        <outlet property="đueDateLabel" destination="gGF-cu-pbz" id="FTH-Ua-lyz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spK-kj-R40" userLabel="First Responder" sceneMemberID="firstResponder"/>
