@@ -112,6 +112,9 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ChW-im-S78" firstAttribute="leading" secondItem="oBW-J1-rDc" secondAttribute="leading" constant="20" id="mBb-J9-5he"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
