@@ -79,22 +79,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-J1-rDc">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oBW-J1-rDc">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-im-S78">
-                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="43"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="36" id="eLA-Id-Wdm"/>
-                                                                <constraint firstAttribute="width" constant="36" id="hNm-Wz-z5A"/>
-                                                            </constraints>
-                                                            <state key="normal" image="Checked"/>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBO-l4-ITF">
+                                                            <rect key="frame" x="0.0" y="10" width="36" height="23"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChW-im-S78">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="36" height="23"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="36" id="eLA-Id-Wdm"/>
+                                                                        <constraint firstAttribute="width" constant="36" id="hNm-Wz-z5A"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="Checked"/>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HkW-zn-9Y4">
-                                                            <rect key="frame" x="36" y="0.0" width="339" height="43"/>
+                                                            <rect key="frame" x="36" y="6.5" width="339" height="30"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKD-jU-fF7">
-                                                                    <rect key="frame" x="0.0" y="6.5" width="339" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="30"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -113,7 +118,10 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="ChW-im-S78" firstAttribute="leading" secondItem="oBW-J1-rDc" secondAttribute="leading" constant="20" id="mBb-J9-5he"/>
+                                                        <constraint firstItem="HkW-zn-9Y4" firstAttribute="leading" secondItem="QBO-l4-ITF" secondAttribute="trailing" constant="10" id="LY3-5h-Afj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QBO-l4-ITF" secondAttribute="bottom" constant="10" id="NSg-vt-gsO"/>
+                                                        <constraint firstItem="QBO-l4-ITF" firstAttribute="leading" secondItem="oBW-J1-rDc" secondAttribute="leading" constant="10" id="pax-VQ-ZNj"/>
+                                                        <constraint firstItem="QBO-l4-ITF" firstAttribute="top" secondItem="oBW-J1-rDc" secondAttribute="top" constant="10" id="tBO-2m-R49"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -216,7 +224,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hI8-8p-qPU"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="S7p-ie-ZVp">
                             <connections>
-                                <segue destination="nyZ-GV-ZLp" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoTableViewControllerWith_sender:" id="bG2-ol-LJ3"/>
+                                <segue destination="nyZ-GV-ZLp" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoTableViewController:" id="NgE-Gr-Ctc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
