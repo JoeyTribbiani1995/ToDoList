@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ToDoDetailTableViewController: UITableViewController {
+class ToDoDetailTableViewController: UITableViewController ,MFMailComposeViewControllerDelegate{
 
     @IBOutlet weak var isCompleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
@@ -112,7 +113,7 @@ class ToDoDetailTableViewController: UITableViewController {
     
     @IBAction func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
         toDo = nil
-        performSegue(withIdentifier: "saveUnwind", sender: self)
+        performSegue(withIdentifier: "unwindToDoTableView", sender: self)
     }
     
     func updateViews(){
@@ -132,7 +133,21 @@ class ToDoDetailTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        guard MFMailComposeViewController.canSendMail() else {return}
+        
+        let mailcomposer = MFMailComposeViewController()
+        mailcomposer.mailComposeDelegate = self
+        mailcomposer.setToRecipients(["vophanhongdung@gmail.com"])
+        mailcomposer.setSubject("to do list - to do \(toDo?.title)")
+        mailcomposer.setMessageBody("\(toDo?.notes) , \(toDo?.dueDate)", isHTML: false)
+        
+        present(mailcomposer, animated: true, completion: nil)
+    }
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
  
