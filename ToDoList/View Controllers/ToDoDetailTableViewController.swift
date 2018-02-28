@@ -50,7 +50,6 @@ class ToDoDetailTableViewController: UITableViewController {
     }
     
     func updateSaveButton(){
-        print("--------------save button")
         let title = titleTextField.text ?? ""
         
         saveBarButton.isEnabled = !title.isEmpty
