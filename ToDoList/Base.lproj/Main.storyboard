@@ -98,6 +98,9 @@
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <action selector="textEditingChanged:" destination="9pa-Xo-hmt" eventType="editingChanged" id="pPd-Vl-u7M"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -158,6 +161,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="541492054.68504298">
                                                         <!--2018-02-28 06:27:34 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePIckerValueChanged:" destination="9pa-Xo-hmt" eventType="valueChanged" id="A9Y-ft-W7f"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -179,16 +185,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OO6-8c-qdv">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c3S-3S-4so">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="OO6-8c-qdv" secondAttribute="trailing" id="60K-3h-pUz"/>
-                                                <constraint firstItem="OO6-8c-qdv" firstAttribute="leading" secondItem="ddA-RY-hEY" secondAttribute="leading" id="Lzz-nx-nAf"/>
-                                                <constraint firstAttribute="bottom" secondItem="OO6-8c-qdv" secondAttribute="bottom" id="WHN-7M-Y0m"/>
-                                                <constraint firstItem="OO6-8c-qdv" firstAttribute="top" secondItem="ddA-RY-hEY" secondAttribute="top" id="l3c-ti-fKE"/>
+                                                <constraint firstAttribute="trailing" secondItem="c3S-3S-4so" secondAttribute="trailing" id="bJP-zG-CdN"/>
+                                                <constraint firstAttribute="bottom" secondItem="c3S-3S-4so" secondAttribute="bottom" id="bSc-kK-giQ"/>
+                                                <constraint firstItem="c3S-3S-4so" firstAttribute="leading" secondItem="ddA-RY-hEY" secondAttribute="leading" id="ltK-eP-a1j"/>
+                                                <constraint firstItem="c3S-3S-4so" firstAttribute="top" secondItem="ddA-RY-hEY" secondAttribute="top" id="xVL-gG-MhN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -202,12 +210,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New To Do " largeTitleDisplayMode="never" id="OMo-da-5M6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hI8-8p-qPU"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="S7p-ie-ZVp">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="S7p-ie-ZVp">
                             <connections>
                                 <segue destination="nyZ-GV-ZLp" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoTableViewControllerWith_sender:" id="bG2-ol-LJ3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="qeO-fd-7Y7" id="hVn-9K-Cic"/>
+                        <outlet property="isCompleteButton" destination="ChW-im-S78" id="zFF-Ba-a3c"/>
+                        <outlet property="notesTextView" destination="c3S-3S-4so" id="wS1-Hp-fPS"/>
+                        <outlet property="saveBarButton" destination="S7p-ie-ZVp" id="bpm-9w-bdw"/>
+                        <outlet property="titleTextField" destination="zKD-jU-fF7" id="dpK-d3-VMn"/>
+                        <outlet property="đueDateLabel" destination="gGF-cu-pbz" id="FTH-Ua-lyz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spK-kj-R40" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nyZ-GV-ZLp" userLabel="Exit" sceneMemberID="exit"/>
