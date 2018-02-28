@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ToDo {
+struct ToDo : Codable {
     var title : String
     var isComplete : Bool
     var dueDate : Date
@@ -19,6 +19,24 @@ struct ToDo {
         self.isComplete = isComplete
         self.dueDate = dueDate
         self.notes = notes
+    }
+    
+    static var documentDictionary = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static var archURL = documentDictionary.appendingPathComponent("ToDoList").appendingPathExtension("plist")
+    
+    static func saveToFile(toDos : [ToDo]){
+        let propertyListEncoder = PropertyListEncoder()
+        let encodeListToDo = try? propertyListEncoder.encode(toDos)
+        try? encodeListToDo?.write(to: archURL, options: .noFileProtection)
+    }
+    
+    static func loadFromFile() -> [ToDo]?{
+        guard let retrieveListToDo = try? Data(contentsOf : archURL) else {
+            return nil
+        }
+        
+        let propertyListDecoder = PropertyListDecoder()
+        return try? propertyListDecoder.decode(Array<ToDo>.self, from: retrieveListToDo)
     }
     
     static func loadToDos() -> [ToDo]? {
@@ -40,5 +58,22 @@ struct ToDo {
         
         return formatter
     }()
+    
+   
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

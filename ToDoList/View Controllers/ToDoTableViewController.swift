@@ -16,6 +16,7 @@ class ToDoTableViewController: UITableViewController ,ToDoCellDelegate {
             toDos[indexPath.row] = toDo
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+        ToDo.saveToFile(toDos: toDos)
     }
     
 
@@ -31,7 +32,7 @@ class ToDoTableViewController: UITableViewController ,ToDoCellDelegate {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editBarButtonItem
         
-        if let saveToDos = ToDo.loadToDos() {
+        if let saveToDos = ToDo.loadFromFile() {
             toDos = saveToDos
         }else {
             toDos = ToDo.loadSampleToDos()
@@ -76,9 +77,8 @@ class ToDoTableViewController: UITableViewController ,ToDoCellDelegate {
         if editingStyle == .delete {
             toDos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
-        }    
+        }
+        ToDo.saveToFile(toDos: toDos)
     }
     
     @IBAction func editBarButtonItemTapped(_ sender: UIBarButtonItem) {
@@ -115,6 +115,8 @@ class ToDoTableViewController: UITableViewController ,ToDoCellDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        
+        ToDo.saveToFile(toDos: toDos)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
