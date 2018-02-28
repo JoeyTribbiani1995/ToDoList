@@ -14,6 +14,7 @@
 		D745A2072045F4510082C3ED /* ToDoLIst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745A2062045F4510082C3ED /* ToDoLIst.swift */; };
 		D745A2092045F4DC0082C3ED /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745A2082045F4DC0082C3ED /* ToDoTableViewController.swift */; };
 		D745A20B204620710082C3ED /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745A20A204620710082C3ED /* ToDoDetailTableViewController.swift */; };
+		D7E728E02046E5F800DFC694 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E728DF2046E5F800DFC694 /* ToDoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D745A2062045F4510082C3ED /* ToDoLIst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoLIst.swift; sourceTree = "<group>"; };
 		D745A2082045F4DC0082C3ED /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		D745A20A204620710082C3ED /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
+		D7E728DF2046E5F800DFC694 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoTableViewCell.swift; path = "ToDoList/View Controllers/ToDoTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		D745A2042045F3E70082C3ED /* Other Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7E728DF2046E5F800DFC694 /* ToDoTableViewCell.swift */,
 			);
 			path = "Other Controllers";
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				D745A2092045F4DC0082C3ED /* ToDoTableViewController.swift in Sources */,
 				D745A20B204620710082C3ED /* ToDoDetailTableViewController.swift in Sources */,
 				D745A2072045F4510082C3ED /* ToDoLIst.swift in Sources */,
+				D7E728E02046E5F800DFC694 /* ToDoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

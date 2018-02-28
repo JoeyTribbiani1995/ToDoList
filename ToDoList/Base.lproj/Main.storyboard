@@ -18,23 +18,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ToDoCell" textLabel="t4v-B5-yNI" style="IBUITableViewCellStyleDefault" id="LmD-hQ-dBd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ToDoCell" id="LmD-hQ-dBd" customClass="ToDoTableViewCell" customModule="ToDoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LmD-hQ-dBd" id="ee5-ns-vdQ">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t4v-B5-yNI">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UuS-qk-Y4p">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfm-MS-aR3">
+                                                    <rect key="frame" x="0.0" y="10" width="36" height="23.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-E6-DNq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="23.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="36" id="I5J-1w-vte"/>
+                                                                <constraint firstAttribute="height" constant="36" id="d4V-26-c2X"/>
+                                                            </constraints>
+                                                            <state key="normal" image="Checked"/>
+                                                            <connections>
+                                                                <action selector="completeButtonTapped" destination="LmD-hQ-dBd" eventType="touchUpInside" id="N6z-HL-HJM"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pk2-1d-S5R">
+                                                    <rect key="frame" x="37" y="11.5" width="304" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nda-j8-Z2a">
+                                                            <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bfm-MS-aR3" firstAttribute="top" secondItem="UuS-qk-Y4p" secondAttribute="top" constant="10" id="7Ue-mu-IZw"/>
+                                                <constraint firstItem="bfm-MS-aR3" firstAttribute="leading" secondItem="UuS-qk-Y4p" secondAttribute="leading" constant="10" id="BVZ-uS-XNN"/>
+                                                <constraint firstItem="pk2-1d-S5R" firstAttribute="leading" secondItem="bfm-MS-aR3" secondAttribute="trailing" constant="10" id="O3H-Mu-vqM"/>
+                                                <constraint firstAttribute="bottom" secondItem="bfm-MS-aR3" secondAttribute="bottom" constant="10" id="REp-TU-sEY"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UuS-qk-Y4p" firstAttribute="leading" secondItem="ee5-ns-vdQ" secondAttribute="leading" id="6fW-Bg-FJY"/>
+                                        <constraint firstAttribute="trailing" secondItem="UuS-qk-Y4p" secondAttribute="trailing" id="GBb-oL-bmX"/>
+                                        <constraint firstItem="UuS-qk-Y4p" firstAttribute="top" secondItem="ee5-ns-vdQ" secondAttribute="top" id="NhJ-kQ-BvT"/>
+                                        <constraint firstAttribute="bottom" secondItem="UuS-qk-Y4p" secondAttribute="bottom" id="w3T-15-DmZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="KP9-E6-DNq" id="gtf-Gf-ojm"/>
+                                    <outlet property="titleLabel" destination="nda-j8-Z2a" id="W7i-fy-Myf"/>
                                     <segue destination="9pa-Xo-hmt" kind="push" identifier="DetailToDo" id="CQJ-F8-mra"/>
                                 </connections>
                             </tableViewCell>
@@ -94,7 +133,7 @@
                                                                         <constraint firstAttribute="height" constant="36" id="eLA-Id-Wdm"/>
                                                                         <constraint firstAttribute="width" constant="36" id="hNm-Wz-z5A"/>
                                                                     </constraints>
-                                                                    <state key="normal" image="Checked"/>
+                                                                    <state key="normal" image="Unchecked"/>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -238,10 +277,10 @@
                     <connections>
                         <outlet property="dueDateLabel" destination="gGF-cu-pbz" id="Y29-Fr-9UY"/>
                         <outlet property="dueDatePicker" destination="qeO-fd-7Y7" id="hVn-9K-Cic"/>
-                        <outlet property="isCompleteButton" destination="ChW-im-S78" id="zFF-Ba-a3c"/>
+                        <outlet property="isCompleteButton" destination="ChW-im-S78" id="bg7-Fi-7Cb"/>
                         <outlet property="notesTextView" destination="c3S-3S-4so" id="wS1-Hp-fPS"/>
                         <outlet property="saveBarButton" destination="S7p-ie-ZVp" id="bpm-9w-bdw"/>
-                        <outlet property="titleTextField" destination="zKD-jU-fF7" id="dpK-d3-VMn"/>
+                        <outlet property="titleTextField" destination="zKD-jU-fF7" id="VQ7-1u-hW5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spK-kj-R40" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,6 +323,7 @@
     </scenes>
     <resources>
         <image name="Checked" width="44" height="44"/>
+        <image name="Unchecked" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CQJ-F8-mra"/>

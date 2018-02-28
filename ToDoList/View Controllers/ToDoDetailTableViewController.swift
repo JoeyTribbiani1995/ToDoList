@@ -117,14 +117,22 @@ class ToDoDetailTableViewController: UITableViewController {
     
     func updateViews(){
         if let toDo = toDo {
+            navigationItem.title = "To Do"
             titleTextField.text = toDo.title
             isCompleteButton.isSelected = toDo.isComplete
+            if isCompleteButton.isSelected {
+                isCompleteButton.setImage(#imageLiteral(resourceName: "Checked"), for: .normal)
+            }else {
+                isCompleteButton.setImage(#imageLiteral(resourceName: "Unchecked"), for: .normal)
+            }
             dueDatePicker.date = toDo.dueDate
             notesTextView.text = toDo.notes
         }else {
             dueDatePicker.date = Date().addingTimeInterval(24*60*60)
         }
     }
+    
+    
     
     
  

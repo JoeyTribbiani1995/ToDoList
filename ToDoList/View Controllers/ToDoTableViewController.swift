@@ -8,10 +8,20 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
+class ToDoTableViewController: UITableViewController ,ToDoCellDelegate {
+    func checkmarkTapped(sender: ToDoTableViewCell) {
+        if let indexPath = tableView.indexPath(for: sender){
+            var toDo = toDos[indexPath.row]
+            toDo.isComplete = !toDo.isComplete
+            toDos[indexPath.row] = toDo
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 
     @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
     
+    var toDo : ToDo?
     var toDos = [ToDo]()
     var flagChangeBarButtonTitle = true
     
@@ -43,13 +53,17 @@ class ToDoTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell")  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell") as? ToDoTableViewCell else {
             fatalError("Could not dequeue a cell")
         }
         
         let toDo = toDos[indexPath.row]
-        cell.textLabel?.text = toDo.title
+
+        cell.delegate = self
         
+        cell.updateCells(with: toDo)
+        cell.showsReorderControl = true 
+       
         return cell
     }
     
@@ -112,7 +126,5 @@ class ToDoTableViewController: UITableViewController {
             
         }
     }
-    
-    
     
 }
