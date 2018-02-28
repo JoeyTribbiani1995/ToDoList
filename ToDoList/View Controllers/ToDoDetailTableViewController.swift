@@ -31,10 +31,10 @@ class ToDoDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         updateSaveButton()
         
-        updateCompleteButton()
-        
         dueDatePicker.date = Date().addingTimeInterval(24*60*60)
         updateDueDateLabel(date: dueDatePicker.date)
+        
+        updateViews()
         
     }
 
@@ -48,23 +48,12 @@ class ToDoDetailTableViewController: UITableViewController {
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButton()
-        updateCompleteButton()
     }
     
     func updateSaveButton(){
         let title = titleTextField.text ?? ""
         
         saveBarButton.isEnabled = !title.isEmpty
-       
-    }
-    
-    func updateCompleteButton(){
-        
-        if saveBarButton.isEnabled == true {
-            isCompleteButton.setImage(#imageLiteral(resourceName: "Checked"), for: .normal)
-        }else {
-            isCompleteButton.setImage(#imageLiteral(resourceName: "Unchecked"), for: .normal)
-        }
     }
     
     @IBAction func returnPressed(_ sender: UITextField) {
@@ -119,10 +108,23 @@ class ToDoDetailTableViewController: UITableViewController {
         let date = dueDatePicker.date
         
         toDo = ToDo(title: title, isComplete: isComplete, dueDate: date, notes: notes!)
-        
-        
     }
     
+    @IBAction func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
+        toDo = nil
+        performSegue(withIdentifier: "saveUnwind", sender: self)
+    }
+    
+    func updateViews(){
+        if let toDo = toDo {
+            titleTextField.text = toDo.title
+            isCompleteButton.isSelected = toDo.isComplete
+            dueDatePicker.date = toDo.dueDate
+            notesTextView.text = toDo.notes
+        }else {
+            dueDatePicker.date = Date().addingTimeInterval(24*60*60)
+        }
+    }
     
     
  
